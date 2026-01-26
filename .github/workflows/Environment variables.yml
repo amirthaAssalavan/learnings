@@ -1,0 +1,22 @@
+name: Environment variables
+
+on:
+    workflow_dispatch:
+
+env:
+    Day_of_the_week: Monday
+    testvar: value-1
+
+jobs:
+    mainjob:
+        name: 'print the environment variables'
+        runs-on: macos-latest
+    
+    env:
+        Greeting: Dear
+        testvar: value-2
+    
+    steps:
+        - name: print-the-env-variables-value
+        run: |
+            echo "Hello $Greeting"
