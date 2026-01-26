@@ -1,4 +1,4 @@
-name: Environment variables
+name: Environmentvariables
 
 on:
     workflow_dispatch:
