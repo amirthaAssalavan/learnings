@@ -20,9 +20,11 @@ jobs:
 
     job_2:
         name: Download Artifacts
+        needs: job_1
         runs-on: ubuntu-latest
         steps:
             - uses: actions/download-artifact@v4
               with:
                   name: file
             - run: cat file.txt
+    
