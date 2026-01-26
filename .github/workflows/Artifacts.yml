@@ -1,0 +1,27 @@
+name: Artifacts
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job_1:
+        name: Upload Artifacts
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create a local file
+              run: |
+                  echo "Hi, I am uploading this file as an artifact to get use of it by other jobs" > file.txt
+
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: file
+                  path: file.txt
+
+    job_2:
+        name: Download Artifacts
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/download-artifact@v3
+              with:
+                  name: file
+            - run: cat file.txt
