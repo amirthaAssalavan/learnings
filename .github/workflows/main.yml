@@ -49,7 +49,7 @@ jobs:
 
   
   build-dependent:
-    needs: [build-api]
+    needs: [build]
     runs-on: macos-latest
     steps:
       - run: echo "Hello MacOS!!"
