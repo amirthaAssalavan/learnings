@@ -12,7 +12,7 @@ jobs:
               run: |
                   echo "Hi, I am uploading this file as an artifact to get use of it by other jobs" > file.txt
 
-            - uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v4
               with:
                   name: file
                   path: file.txt
@@ -21,7 +21,7 @@ jobs:
         name: Download Artifacts
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/download-artifact@v3
+            - uses: actions/download-artifact@v4
               with:
                   name: file
             - run: cat file.txt
