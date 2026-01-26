@@ -1,4 +1,4 @@
-name: List all the default Environment variables
+name: Print some Environment variables
 
 on:
     workflow_dispatch:
