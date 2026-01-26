@@ -1,4 +1,4 @@
-name: Environmentvariables
+name: Environment_variables
 
 on:
     workflow_dispatch:
@@ -6,6 +6,7 @@ on:
 env:
     Day_of_the_week: Monday
     testvar: value-1
+    TOP_SECRET_KEY: i-am-a-top-secret-key
 
 jobs:
     mainjob:

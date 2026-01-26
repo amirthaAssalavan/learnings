@@ -8,10 +8,10 @@ jobs:
         runs-on: macos-latest
         steps:
             - name: set the value
-              id: step_one
+              id: step_01
               run: |
                   echo "action_status=yellow" >> $GITHUB_ENV
             - name: use the value
-              id: step_two
+              id: step_02
               run: |
                   echo "${{env.action_status}}"
