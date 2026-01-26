@@ -9,14 +9,20 @@ env:
 
 jobs:
     mainjob:
-        name: 'print the environment variables'
+        name: "print the environment variables"
         runs-on: macos-latest
-    
-    env:
-        Greeting: Dear
-        testvar: value-2
-    
-    steps:
-        - name: print-the-env-variables-value
-        run: |
-            echo "Hello $Greeting"
+
+        env:
+            Greeting: Dear
+            testvar: value-2
+
+        steps:
+            - name: print-the-env-variables-value
+              run: |
+                  echo "Hello $Greeting $name. Today is $Day_of_the_week"
+                  echo " testvar $testvar"
+                  echo "testvar ${{env.testvar}}"
+
+              env:
+                  name: Dharshini
+                  testvar: value-3
