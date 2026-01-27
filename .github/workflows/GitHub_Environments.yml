@@ -13,4 +13,5 @@ jobs:
 
             steps:
                 -  name: Print the environment secret variable value
-                   echo "Secret value is ${{secrets.app_secret}}"
+                   run: |
+                    echo "Secret value is ${{secrets.app_secret}}"
