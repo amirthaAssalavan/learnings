@@ -11,7 +11,7 @@ jobs:
             name: testing
             url: https://github.com
 
-            steps:
-                -  name: Print the environment secret variable value
-                   run: |
-                    echo "Secret value is ${{secrets.app_secret}}"
+        steps:
+            -  name: Print the environment secret variable value
+               run: |
+                   echo "Secret value is ${{secrets.app_secret}}"
