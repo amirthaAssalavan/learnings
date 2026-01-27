@@ -1,0 +1,16 @@
+name: Deployment to Github environment
+
+on:
+    workflow_dispatch:
+
+jobs:
+    Deployment:
+        runs-on: ubuntu-latest
+
+        environment: 
+            name: testing
+            url: https://github.com
+
+            steps:
+                -  name: Print the environment secret variable value
+                   echo "Secret value is ${{secrets.app_secret}}"
