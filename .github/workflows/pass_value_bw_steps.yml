@@ -15,7 +15,7 @@ jobs:
         id: var_create
         run: |
           echo "::set-output name=var_2::Amirtha"
-          echo "::set-output name=var_3::$(date + '%Y-%MM-%dd %HH-%mm%ss')"
+          echo "::set-output name=var_3::$(date + '%Y-%m-%d %H-%M%S')"
       - name: Get the values of variables
         run: |
           echo "Printing all the values in this job"
