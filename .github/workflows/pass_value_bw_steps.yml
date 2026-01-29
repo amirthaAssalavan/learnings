@@ -10,16 +10,20 @@ jobs:
     steps:
       - name: Set  the values to Githubenv variable
         run: |
-          echo "var_1= one" >> $GITHUB_ENV
+          echo "var_1= is" >> $GITHUB_ENV
       - name: Create the variable
         id: var_create
         run: |
           echo "::set-output name=var_2::Amirtha"
           echo "::set-output name=var_3::$(date +'%Y-%m-%d %H-%M-%S')"
+          echo "Var_4=Current_Timestamp" >> $GITHUB_OUTPUT
+          echo "Var_5=HELLO" >> $GITHUB_OUTPUT
       - name: Get the values of variables
         run: |
           echo "Printing all the values in this job"
           echo "Variable 1" var_1: ${{ env.var_1 }}
           echo "Variable 2" var_2: ${{ steps.var_create.outputs.var_2 }}
           echo "Variable 2" var_3: ${{ steps.var_create.outputs.var_3 }}
+          echo "${{steps.var_create.outputs.var_5}} ${{steps.var_create.outputs.var_2}} ${{steps.var_create.outputs.Var_4}} ${{env.var_1}} ${{steps.var_create.outputs.var_3}}"
+
 
