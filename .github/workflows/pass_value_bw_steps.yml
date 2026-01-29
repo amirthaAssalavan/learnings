@@ -1,0 +1,24 @@
+name: Pass values between the steps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Passing-values-between-steps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set  the values to Githubenv variable
+        run: |
+          echo "var_1= one" >> $GITHUB_ENV
+      - name: Create the variable
+        id: var_create
+        run: |
+          echo "::set-output name=var_2::Amirtha"
+          echo "::set-output name=var_3::$(date + '%Y-%MM-%dd %HH-%mm%ss')"
+      - name: Get the values of variables
+        run: |
+          echo "Printing all the values in this job"
+          echo "Variable 1" var_1: ${{ env.var_1 }}
+          echo "Variable 2" var_2: ${{ steps.var_create.outputs.var_2 }}
+          echo "Variable 2" var_3: ${{ steps.var_create.outputs.var_3 }}
