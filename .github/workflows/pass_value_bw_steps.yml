@@ -15,10 +15,11 @@ jobs:
         id: var_create
         run: |
           echo "::set-output name=var_2::Amirtha"
-          echo "::set-output name=var_3::$(date + '%Y-%m-%d %H-%M%S')"
+          echo "::set-output name=var_3::$(date + '%Y-%m-%d %H-%M-%S')"
       - name: Get the values of variables
         run: |
           echo "Printing all the values in this job"
           echo "Variable 1" var_1: ${{ env.var_1 }}
           echo "Variable 2" var_2: ${{ steps.var_create.outputs.var_2 }}
           echo "Variable 2" var_3: ${{ steps.var_create.outputs.var_3 }}
+
